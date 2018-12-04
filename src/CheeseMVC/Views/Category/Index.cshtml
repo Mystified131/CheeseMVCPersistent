@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+<ul>
+
+@foreach (var cheesecategory in CheeseCategory)
+{ 
+    <li>@cheesecategory.Name</li>
+
+
+        }
+</ul>
