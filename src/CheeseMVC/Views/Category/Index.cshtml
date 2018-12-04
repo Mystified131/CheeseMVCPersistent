@@ -8,10 +8,12 @@
 
 <ul>
 
-@foreach (var cheesecategory in CheeseCategory)
+@foreach (var cheesecategory in Model)
 { 
     <li>@cheesecategory.Name</li>
 
 
         }
 </ul>
+
+<p><a asp-controller="Category" asp-action="Add">Add Category</a></p>
