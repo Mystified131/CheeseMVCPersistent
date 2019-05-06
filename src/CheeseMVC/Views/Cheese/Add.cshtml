@@ -9,11 +9,21 @@
         <input class="form-control" asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
+
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input class="form-control" asp-for="Rating" />
+        <span asp-validation-for="Rating"></span>
+        <p>Rating must be an integer from 1-5.</p>
+    </div>
+
     <div class="form-group">
         <label asp-for="Description"></label>
         <input class="form-control" asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
+
+
 
     <div class="form-group">
         <label asp-for="CategoryID"></label>

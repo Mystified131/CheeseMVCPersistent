@@ -34,25 +34,30 @@ namespace CheeseMVC.Controllers
         [HttpPost]
         public IActionResult Add(AddCheeseViewModel addCheeseViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                CheeseCategory newCheeseCategory =
-                    context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
-                // Add the new cheese to my existing cheeses
-                Cheese newCheese = new Cheese
-                {
-                    Name = addCheeseViewModel.Name,
-                    Description = addCheeseViewModel.Description,
-                    Category = newCheeseCategory
-                };
+            if ((ModelState.IsValid) && (addCheeseViewModel.Rating > 0) && (addCheeseViewModel.Rating < 6))
 
-                context.Cheeses.Add(newCheese);
-                context.SaveChanges();
+                        {
 
-                return Redirect("/Cheese");
+                    CheeseCategory newCheeseCategory =
+                        context.Categories.Single(c => c.ID == addCheeseViewModel.CategoryID);
+                    // Add the new cheese to my existing cheeses
+                    Cheese newCheese = new Cheese
+                    {
+                        Name = addCheeseViewModel.Name,
+                        Description = addCheeseViewModel.Description,
+                        Category = newCheeseCategory,
+                        Rating = addCheeseViewModel.Rating
+                    };
+
+                    context.Cheeses.Add(newCheese);
+                    context.SaveChanges();
+
+                    return Redirect("/Cheese");
+   
+
             }
 
-            return View(addCheeseViewModel);
+            return Redirect("/");
         }
 
         public IActionResult Remove()

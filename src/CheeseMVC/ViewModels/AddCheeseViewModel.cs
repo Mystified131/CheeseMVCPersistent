@@ -15,6 +15,10 @@ namespace CheeseMVC.ViewModels
         [Display(Name = "Cheese Name")]
         public string Name { get; set; }
 
+        [Required]
+        [Display(Name = "Rating")]
+        public int Rating { get; set; }
+
         [Required(ErrorMessage = "You must give your cheese a description")]
         public string Description { get; set; }
 
