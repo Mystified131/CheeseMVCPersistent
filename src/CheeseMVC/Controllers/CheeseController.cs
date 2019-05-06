@@ -96,6 +96,17 @@ namespace CheeseMVC.Controllers
             return View("Index", theCategory.Cheeses);
         }
 
+        public IActionResult Rating()
+        {
+            IList<Cheese> cheeses = context.Cheeses.Include(c => c.Category).ToList();
+
+            IList<Cheese> CheeseRatings = cheeses.OrderByDescending(x => x.Rating).ToList();
+
+            return View(CheeseRatings);
+        }
+
+
+
     }
 
 }
